@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
+import { Body, Controller, Get, Post, Query } from '@nestjs/common';
 import { UserDto } from './user.dto';
 import { UserService } from './user.service';
 
@@ -15,9 +15,9 @@ export class UserController {
     }
   }
   @Get('/posts')
-  getAllPosts() {
+  getAllPosts(@Query('id') id: string) {
     try {
-      return this.userService.getAllPosts(id);
+      return this.userService.getUsersPost(Number(id));
     } catch (error) {
       throw error;
     }
