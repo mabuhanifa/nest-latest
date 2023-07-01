@@ -10,3 +10,9 @@ export class UserDto {
   @IsEmail()
   email: string;
 }
+
+export class ParamDto {
+  @ApiProperty({ description: 'Please enter your id' })
+  @IsString()
+  id: string;
+}

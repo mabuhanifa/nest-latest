@@ -11,4 +11,15 @@ export class UserService {
       data: userDto,
     });
   }
+
+  getUsersPost(id: number) {
+    return this.prismaService.user.findMany({
+      where: {
+        id: id,
+      },
+      include: {
+        posts: true,
+      },
+    });
+  }
 }
