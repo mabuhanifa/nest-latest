@@ -1,12 +1,16 @@
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
-import { IsEmail, IsString } from 'class-validator';
+import { IsString } from 'class-validator';
 
 export class PostDto {
   @ApiProperty({ description: 'Please enter your title' })
   @IsString()
   title: string;
 
-  @ApiPropertyOptional({ description: 'Please enter your valid description' })
-  @IsEmail()
+  @ApiPropertyOptional({ description: 'Please enter your description' })
+  @IsString()
   description?: string;
+
+  @ApiPropertyOptional({ description: 'Please enter author_id' })
+  @IsString()
+  author_id?: number;
 }
