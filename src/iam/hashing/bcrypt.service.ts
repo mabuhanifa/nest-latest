@@ -1,6 +1,13 @@
+import { compare, genSalt, hash } from 'bcrypt';
 import { HashingService } from './hashing.service';
 
 export class BcryptService implements HashingService {
-  hash(value: string | Buffer): Promise<string> {}
-  compare(value: string | Buffer, encrypted: string): Promise<boolean> {}
+  async hash(data: string | Buffer): Promise<string> {
+    const salt = await genSalt();
+    return hash(data, salt);
+  }
+
+  compare(data: string | Buffer, encrypted: string): Promise<boolean> {
+    return compare(data, encrypted);
+  }
 }
