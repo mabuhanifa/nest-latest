@@ -18,4 +18,27 @@ export class AuthenticationService {
       },
     });
   }
+
+  async signin(signinDto: SignupDto) {
+    const user = await this.prismaService.user.findUnique({
+      where: {
+        email: signinDto.email,
+      },
+    });
+
+    if (!user) {
+      return null;
+    }
+
+    const isMatch = await this.hashingService.compare(
+      signinDto.password,
+      user.password,
+    );
+
+    if (!isMatch) {
+      return null;
+    }
+
+    return user;
+  }
 }
