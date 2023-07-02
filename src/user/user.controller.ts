@@ -14,6 +14,7 @@ export class UserController {
       throw error;
     }
   }
+
   @Get('/posts')
   getAllPosts(@Query('id') id: string) {
     try {
