@@ -7,8 +7,10 @@ import { SignupDto } from './dto/signup.dto';
 export class AuthenticationService {
   constructor(
     private readonly prismaService: PrismaService,
+
     private readonly hashingService: HashingService,
   ) {}
+
   async signup(signupDto: SignupDto) {
     return this.prismaService.user.create({
       data: {
