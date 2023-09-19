@@ -1,1 +1,4 @@
-export class CreateDonationInput {}
+export class CreateDonationInput {
+  id: number;
+  amount: number;
+}

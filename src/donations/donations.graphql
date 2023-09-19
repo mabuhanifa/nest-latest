@@ -1,15 +1,16 @@
 type Donation {
-  # Example field (placeholder)
+  id: Int
   amount: Int
 }
 
 input CreateDonationInput {
-  # Example field (placeholder)
-  exampleField: Int
+  id: Int
+  amount: Int
 }
 
 input UpdateDonationInput {
-  id: Int!
+  id: Int
+  amount: Int
 }
 
 type Query {
