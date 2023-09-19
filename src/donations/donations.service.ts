@@ -8,7 +8,11 @@ export class DonationsService {
   constructor(private readonly prismaService: PrismaService) {}
 
   create(createDonationInput: CreateDonationInput) {
-    this.prismaService;
+    const donation = this.prismaService.donation.create({
+      data: createDonationInput,
+    });
+
+    return donation;
   }
 
   findAll() {}
