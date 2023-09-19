@@ -25,3 +25,9 @@ model Post {
   author      User?   @relation(fields: [author_id], references: [id])
   author_id   Int?
 }
+
+model Donation {
+  id       Int    @id @default(autoincrement())
+  username String
+  amount   Int
+}

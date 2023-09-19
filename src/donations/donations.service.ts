@@ -3,27 +3,17 @@ import { CreateDonationInput } from './dto/create-donation.input';
 import { UpdateDonationInput } from './dto/update-donation.input';
 import { PrismaService } from 'src/prisma/prisma.service';
 
-const data = [
-  { id: 1, amount: 100 },
-  { id: 2, amount: 200 },
-];
-
 @Injectable()
 export class DonationsService {
   constructor(private readonly prismaService: PrismaService) {}
 
   create(createDonationInput: CreateDonationInput) {
-    data.push(createDonationInput);
-    return createDonationInput;
+    this.prismaService;
   }
 
-  findAll() {
-    return data;
-  }
+  findAll() {}
 
-  findOne(id: number) {
-    return data.find((item) => item.id === id);
-  }
+  findOne(id: number) {}
 
   update(id: number, updateDonationInput: UpdateDonationInput) {
     return `This action updates a #${id} donation`;
