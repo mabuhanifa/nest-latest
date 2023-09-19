@@ -1,16 +1,18 @@
 type Donation {
   id: Int
   amount: Int
+  username: String
 }
 
 input CreateDonationInput {
-  id: Int
   amount: Int
+  username: String
 }
 
 input UpdateDonationInput {
-  id: Int
+  id: Int!
   amount: Int
+  username: String
 }
 
 type Query {
