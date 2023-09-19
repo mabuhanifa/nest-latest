@@ -9,7 +9,7 @@ export class DonationsService {
   }
 
   findAll() {
-    return `This action returns all donations`;
+    return [{ amount: 100 }];
   }
 
   findOne(id: number) {

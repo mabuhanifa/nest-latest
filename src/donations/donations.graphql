@@ -1,6 +1,6 @@
 type Donation {
   # Example field (placeholder)
-  exampleField: Int
+  amount: Int
 }
 
 input CreateDonationInput {
