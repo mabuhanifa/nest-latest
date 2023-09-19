@@ -8,18 +8,23 @@ export class DonationsService {
   constructor(private readonly prismaService: PrismaService) {}
 
   create(createDonationInput: CreateDonationInput) {
-    const donation = this.prismaService.donation.create({
+    const donations = this.prismaService.donation.create({
       data: createDonationInput,
     });
 
-    return donation;
+    return donations;
   }
 
   findAll() {
     return this.prismaService.donation.findMany();
   }
 
-  findOne(id: number) {}
+  findOne(id: number) {
+    const donation = this.prismaService.donation.findUnique({
+      where: { id },
+    });
+    return donation;
+  }
 
   update(id: number, updateDonationInput: UpdateDonationInput) {
     return `This action updates a #${id} donation`;
